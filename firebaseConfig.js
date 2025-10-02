@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCd9svqXwl3WUKReqhtbyDtc5s_TlBQX8w",
-  authDomain: "goalproject-cal.firebaseapp.com",
-  projectId: "goalproject-cal",
-  storageBucket: "goalproject-cal.firebasestorage.app",
-  messagingSenderId: "939445587655",
-  appId: "1:939445587655:web:2773b4b941d56b4672b8e2"
+  apiKey: "AIzaSyA1SG9a6bOrQAOXek2D_aaCZxyao-SnccU",
+  authDomain: "crud-ef1d1.firebaseapp.com",
+  projectId: "crud-ef1d1",
+  storageBucket: "crud-ef1d1.firebasestorage.app",
+  messagingSenderId: "234765056585",
+  appId: "1:234765056585:web:79c0dc25a4d7b07303dd98"
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app)
+export const db = getFirestore(app);

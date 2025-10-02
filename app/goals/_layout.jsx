@@ -9,8 +9,8 @@ export default function GoalsLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: 'black',
-          tabBarInactiveTintColor: 'grey',
+          tabBarActiveTintColor: '#9F2B68',
+          tabBarInactiveTintColor: '#E0B0FF',
         }}>
         <Tabs.Screen
           name="index"
@@ -20,7 +20,7 @@ export default function GoalsLayout() {
               <Ionicons 
                 size={24} 
                 name={focused ? 'home' : 'home-outline'} 
-                color="black"
+                color="#9F2B68"
               />
             ),
           }}
@@ -33,7 +33,7 @@ export default function GoalsLayout() {
               <Ionicons 
                 size={24} 
                 name={focused ? 'create' : 'create-outline'} 
-                color="black"
+                color="#9F2B68"
               />
             ),
           }}
