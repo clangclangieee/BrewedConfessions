@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native"
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useGoals } from "../../hooks/useGoals"   // 👈 import your hook
 
@@ -7,6 +7,11 @@ const Goals = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Image 
+              source={require('../../assets/images/hyunie.gif')}
+              style={styles.gif}
+              resizeMode="cover" 
+            />
       <Text style={styles.title}>Your Goals</Text>
 
       {goals.length === 0 ? (
@@ -43,11 +48,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#D6CADD",
   },
+   gif: {
+    width: 250,
+    height: 250,
+    borderRadius: 20,
+    overflow: 'hidden',
+    marginBottom: 20,
+    alignSelf: 'center', 
+  },
   title: {
     fontSize: 24,
     textAlign: "center",
     marginBottom: 20,
     fontWeight: "bold",
+    color: '#9F2B68',
   },
   emptyText: {
     fontSize: 16,
@@ -69,6 +83,8 @@ const styles = StyleSheet.create({
   },
   goalText: {
     fontSize: 18,
+    color: '#9F2B68',
+    fontWeight: 'bold',
   },
   deleteBtn: {
     backgroundColor: "#9F2B68",

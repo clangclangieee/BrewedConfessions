@@ -1,5 +1,5 @@
 import { Link } from 'expo-router'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 
 const Home = () => {
   return (
@@ -7,6 +7,16 @@ const Home = () => {
       <Text style={styles.title}>
         M Y  G O A L S ,  M Y  K N E E S
       </Text>
+       <Image 
+        source={require('../assets/images/kwan.gif')}
+        style={{
+        width: 250,       
+        height: 250,      
+        borderRadius: 20, 
+        overflow: 'hidden', 
+        }}
+        resizeMode="cover" 
+      />
       <Link style={styles.link} href="/goals">
         View Your Goals
       </Link>
@@ -26,6 +36,8 @@ const styles = StyleSheet.create({
   title: {
     marginVertical: 40,
     fontSize: 28,
+    color: '#9F2B68',
+    fontWeight: 'bold',
   },
   link: {
     marginVertical: 20,
@@ -33,6 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#BE93E4',
     color: 'white',
     borderRadius: 8,
+    fontWeight: 'bold',
   },
 })
 
