@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router'
+import { Stack, Tabs } from 'expo-router'
 import { Ionicons } from "@expo/vector-icons"
 import { GoalsProvider } from '../../context/GoalsContext'
 
@@ -19,7 +19,7 @@ export default function GoalsLayout() {
             tabBarIcon: ({ focused }) => (
               <Ionicons 
                 size={24} 
-                name={focused ? 'home' : 'home-outline'} 
+                name={focused ? 'home' : 'planet-outline'} 
                 color="#9F2B68"
               />
             ),
@@ -32,7 +32,20 @@ export default function GoalsLayout() {
             tabBarIcon: ({ focused }) => (
               <Ionicons 
                 size={24} 
-                name={focused ? 'create' : 'create-outline'} 
+                name={focused ? 'ice-cream' : 'ice-cream-outline'} 
+                color="#9F2B68"
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="update/[id]"
+          options={{
+            title: 'Update Goal',
+            tabBarIcon: ({ focused }) => (
+              <Ionicons 
+                size={24} 
+                name={focused ? 'brush' : 'brush-outline'} 
                 color="#9F2B68"
               />
             ),

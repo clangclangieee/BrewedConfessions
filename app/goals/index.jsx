@@ -1,9 +1,12 @@
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useGoals } from "../../hooks/useGoals"   // 👈 import your hook
+import { useRouter } from "expo-router";
+
 
 const Goals = () => {
-  const { goals, deleteGoal } = useGoals()   // 👈 get goals + delete function
+  const { goals, deleteGoal } = useGoals() 
+  const router = useRouter();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,7 +27,13 @@ const Goals = () => {
             <View style={styles.goalItem}>
               <Text style={styles.goalText}>{item.goal}</Text>
 
-              {/* Example delete button */}
+              <TouchableOpacity
+                style={styles.updateBtn}
+                onPress={() => router.push(`/goals/update/${item.id}`)} // 👈 navigate to update page
+              >
+                <Text style={styles.updateText}>Edit</Text>
+              </TouchableOpacity>
+
               <TouchableOpacity
                 style={styles.deleteBtn}
                 onPress={() => deleteGoal(item.id)}
@@ -77,20 +86,34 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 8,
     marginBottom: 20,
-    width: "75%",
+    width: "90%",
     alignSelf: "center",  
     marginHorizontal: 20,
   },
   goalText: {
+    flex: 1,
     fontSize: 18,
     color: '#9F2B68',
     fontWeight: 'bold',
+    marginRight: 10, 
+  },
+  updateBtn: {
+    backgroundColor: "#BE93E4",
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 5,
+    marginRight: 8,
+  },
+  updateText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
   deleteBtn: {
     backgroundColor: "#9F2B68",
     paddingVertical: 5,
     paddingHorizontal: 12,
     borderRadius: 5,
+    alignSelf: 'center',
   },
   deleteText: {
     color: "#fff",
