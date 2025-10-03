@@ -31,7 +31,7 @@ const Create = () => {
 
       <TextInput
         style={styles.input}
-        placeholder="Whachadu?"
+        placeholder="What's goin on in your head?"
         placeholderTextColor="#fff"
         value={goal}
         onChangeText={setGoal}
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginBottom: 30, 
   },
-
   title: {
     fontSize: 24,
     color: '#9F2B68',

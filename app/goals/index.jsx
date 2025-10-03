@@ -11,7 +11,7 @@ const Goals = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Image 
-              source={require('../../assets/images/hyunie.gif')}
+              source={require('../../assets/images/han.gif')}
               style={styles.gif}
               resizeMode="cover" 
             />
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     marginTop: 50,
-    color: "#E0B0FF",
+    color: '#9F2B68',
   },
   goalItem: {
     flexDirection: "row",

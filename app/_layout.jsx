@@ -1,16 +1,16 @@
-import { Stack } from "expo-router"
-import { StatusBar } from "expo-status-bar"
+// app/_layout.jsx
+import { Stack } from "expo-router";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function RootLayout() {
   return (
-    <>
-      <StatusBar style="auto" />
-      <Stack>
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-        <Stack.Screen name="signup" options={{ headerShown: false }} />
-        <Stack.Screen name="goals" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+    <AuthProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="signup" />
+        <Stack.Screen name="goals" />
       </Stack>
-    </>
-  )
+    </AuthProvider>
+  );
 }
