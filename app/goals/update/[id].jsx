@@ -28,7 +28,7 @@ const UpdateGoal = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Image 
-        source={require("../../../assets/images/know.gif")} 
+        source={require("../../../assets/images/panter.gif")} 
         style={styles.gif}
         resizeMode="cover"
       />
@@ -40,7 +40,7 @@ const UpdateGoal = () => {
         value={goalText}
         onChangeText={setGoalText}
         placeholder="Edit your goal"
-        placeholderTextColor="#fff"
+        placeholderTextColor="#AD88C6"
       />
 
       <Pressable onPress={handleUpdate} style={styles.button}>
@@ -57,36 +57,39 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#D6CADD",
+    backgroundColor: "#E1AFD1",
     padding: 20,
   },
-  gif: {
-    width: 250,
-    height: 250,
-    borderRadius: 20,
-    marginBottom: 20,
+ gif: {
+    width: 250,       
+    height: 250,      
+    borderRadius: 20, 
+    overflow: 'hidden',
+    marginBottom: 30, 
+    alignSelf: 'center',
   },
   title: {
     fontSize: 24,
+    textAlign: "center",
+    marginBottom: 20,
     fontWeight: "bold",
-    marginBottom: 30,
-    color: "#9F2B68",
+    color: '#AD88C6',
   },
   input: {
     width: 300,
-    backgroundColor: "#BE93E4",
+    backgroundColor: "#FFE6E6",
     padding: 16,
     borderRadius: 8,
     marginBottom: 20,
-    color: "#fff",
+    color: "#7469B6",
   },
   button: {
-    backgroundColor: "#9F2B68",
+    backgroundColor: "#AD88C6",
     padding: 16,
     borderRadius: 8,
   },
   buttonText: {
-    color: "#fff",
+    color: "#FFE6E6",
     fontWeight: "bold",
     fontSize: 16,
   },

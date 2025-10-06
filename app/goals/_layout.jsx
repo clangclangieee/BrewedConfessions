@@ -15,8 +15,8 @@ export default function GoalsLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: "#9F2B68",
-          tabBarInactiveTintColor: "#E0B0FF",
+          tabBarActiveTintColor: "#AD88C6",
+          tabBarInactiveTintColor: "#E1AFD1",
         }}
       >
         <Tabs.Screen
@@ -26,8 +26,8 @@ export default function GoalsLayout() {
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "home" : "planet-outline"}
-                color="#9F2B68"
+                name={focused ? "planet" : "planet-outline"}
+                color="#AD88C6"
               />
             ),
           }}
@@ -40,7 +40,7 @@ export default function GoalsLayout() {
               <Ionicons
                 size={24}
                 name={focused ? "ice-cream" : "ice-cream-outline"}
-                color="#9F2B68"
+                color="#AD88C6"
               />
             ),
           }}
@@ -53,7 +53,7 @@ export default function GoalsLayout() {
               <Ionicons
                 size={24}
                 name={focused ? "brush" : "brush-outline"}
-                color="#9F2B68"
+                color="#AD88C6"
               />
             ),
           }}
@@ -66,8 +66,8 @@ export default function GoalsLayout() {
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "person" : "person-outline"}
-                color="#9F2B68"
+                name={focused ? "flower" : "rose-outline"}
+                color="#AD88C6"
               />
             ),
           }}

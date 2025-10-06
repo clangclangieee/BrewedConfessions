@@ -1,27 +1,29 @@
 import { Link } from 'expo-router'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        M Y  G O A L S ,  M Y  K N E E S
-      </Text>
-       <Image 
-        source={require('../assets/images/kwan.gif')}
-        style={{
-        width: 250,       
-        height: 250,      
-        borderRadius: 20, 
-        overflow: 'hidden', 
-        }}
-        resizeMode="cover" 
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleMain}>𝙾𝚏𝚏𝚝𝚛𝚊𝚌𝚔</Text>
+      </View>
+
+      <Image
+        source={require('../assets/images/lofi.gif')}
+        style={styles.gif}
+        resizeMode="cover"
       />
-      <Link style={styles.link} href="/goals">
-        View Your Goals
+
+      <Link href="/goals" asChild>
+        <TouchableOpacity style={styles.buttonPrimary}>
+          <Text style={styles.buttonText}>View Your Goals</Text>
+        </TouchableOpacity>
       </Link>
-      <Link style={styles.link} href="/goals/create">
-        Add a New Goal
+
+      <Link href="/goals/create" asChild>
+        <TouchableOpacity style={styles.buttonSecondary}>
+          <Text style={styles.buttonText}>Add a New Goal</Text>
+        </TouchableOpacity>
       </Link>
     </View>
   )
@@ -30,22 +32,50 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#D6CADD',
+    backgroundColor: '#E1AFD1',
+    paddingHorizontal: 20,
   },
-  title: {
-    marginVertical: 40,
-    fontSize: 28,
-    color: '#9F2B68',
-    fontWeight: 'bold',
+  titleContainer: {
+    alignItems: 'center',
+    marginBottom: 40,
   },
-  link: {
-    marginVertical: 20,
-    padding: 16,
-    backgroundColor: '#BE93E4',
-    color: 'white',
-    borderRadius: 8,
+  titleMain: {
+    fontSize: 32,
     fontWeight: 'bold',
+    color: "#7469B6",
+    letterSpacing: 2,
+  },
+  gif: {
+    width: 250,       
+    height: 250,      
+    borderRadius: 20, 
+    overflow: 'hidden',
+    marginBottom: 30, 
+    alignSelf: 'center',
+  },
+  buttonPrimary: {
+    backgroundColor: '#AD88C6',
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginVertical: 10,
+    elevation: 5,
+  },
+  buttonSecondary: {
+    backgroundColor: "#7469B6",
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginVertical: 10,
+    elevation: 5,
+  },
+  buttonText: {
+    color: '#FFE6E6',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
   },
 })
 

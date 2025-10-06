@@ -23,7 +23,7 @@ const Create = () => {
   return (
     <SafeAreaView style={styles.container}>
        <Image 
-        source={require('../../assets/images/lix.gif')}
+        source={require('../../assets/images/phon.gif')}
         style={styles.gif}
         resizeMode="cover" 
       />
@@ -32,13 +32,13 @@ const Create = () => {
       <TextInput
         style={styles.input}
         placeholder="What's goin on in your head?"
-        placeholderTextColor="#fff"
+        placeholderTextColor="#AD88C6"
         value={goal}
         onChangeText={setGoal}
       />
 
       <Pressable onPress={handleSubmit} style={styles.button}>
-        <Text style={{color: '#fff',fontWeight: "bold" }}>Add A Gol</Text>
+        <Text style={{color: '#FFE6E6',fontWeight: "bold" }}>Add A Gol</Text>
       </Pressable>
     </SafeAreaView>
   )
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D6CADD',
+    backgroundColor: '#E1AFD1',
   },
   gif: {
     width: 250,       
@@ -59,23 +59,26 @@ const styles = StyleSheet.create({
     borderRadius: 20, 
     overflow: 'hidden',
     marginBottom: 30, 
+    alignSelf: 'center',
   },
   title: {
     fontSize: 24,
-    color: '#9F2B68',
+    textAlign: "center",
+    marginBottom: 20,
     fontWeight: "bold",
+    color: '#AD88C6',
   },
   input: {
     width: 300,
-    backgroundColor: '#BE93E4',
+    backgroundColor: '#FFE6E6',
     padding: 20,
     borderRadius: 8,
     marginVertical: 40,
+    color: "#7469B6",
   },
   button: {
     padding: 18,
-    backgroundColor: '#BE93E4',
-    color: 'white',
+    backgroundColor: '#AD88C6',
     borderRadius: 8,
   }
 })

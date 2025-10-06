@@ -11,7 +11,7 @@ const Goals = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Image 
-              source={require('../../assets/images/han.gif')}
+              source={require('../../assets/images/lino.gif')}
               style={styles.gif}
               resizeMode="cover" 
             />
@@ -31,14 +31,14 @@ const Goals = () => {
                 style={styles.updateBtn}
                 onPress={() => router.push(`/goals/update/${item.id}`)} // 👈 navigate to update page
               >
-                <Text style={styles.updateText}>Edit</Text>
+                <Text style={styles.updateText}>EDIT</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={styles.deleteBtn}
                 onPress={() => deleteGoal(item.id)}
               >
-                <Text style={styles.deleteText}>Delete</Text>
+                <Text style={styles.deleteText}>DELETE</Text>
               </TouchableOpacity>
             </View>
           )}
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 30,
     paddingHorizontal: 20,
-    backgroundColor: "#D6CADD",
+    backgroundColor: "#E1AFD1",
   },
    gif: {
     width: 250,
@@ -70,20 +70,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
     fontWeight: "bold",
-    color: '#9F2B68',
+    color: '#AD88C6',
   },
   emptyText: {
     fontSize: 16,
     textAlign: "center",
     marginTop: 50,
-    color: '#9F2B68',
+    color: '#FFE6E6',
   },
   goalItem: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 15,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFE6E6",
     borderRadius: 8,
     marginBottom: 20,
     width: "90%",
@@ -93,30 +93,30 @@ const styles = StyleSheet.create({
   goalText: {
     flex: 1,
     fontSize: 18,
-    color: '#9F2B68',
+    color: '#AD88C6',
     fontWeight: 'bold',
     marginRight: 10, 
   },
   updateBtn: {
-    backgroundColor: "#BE93E4",
+    backgroundColor: "#AD88C6",
     paddingVertical: 6,
     paddingHorizontal: 14,
     borderRadius: 5,
     marginRight: 8,
   },
   updateText: {
-    color: "#fff",
+    color: "#FFE6E6",
     fontWeight: "bold",
   },
   deleteBtn: {
-    backgroundColor: "#9F2B68",
+    backgroundColor: "#7469B6",
     paddingVertical: 5,
     paddingHorizontal: 12,
     borderRadius: 5,
     alignSelf: 'center',
   },
   deleteText: {
-    color: "#fff",
+    color: "#FFE6E6",
     fontWeight: "bold",
   },
 })

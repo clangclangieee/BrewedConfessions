@@ -9,7 +9,7 @@ export default function Profile() {
   const router = useRouter();
 
   const [gif, setGif] = useState(null); 
-  const [nickname, setNickname] = useState("CARAMEL");
+  const [nickname, setNickname] = useState("");
   const [editingNickname, setEditingNickname] = useState(false);
 
 
@@ -36,7 +36,7 @@ export default function Profile() {
       {/* Profile Gif */}
       <TouchableOpacity onPress={pickGif}>
         <Image
-          source={{ uri: gif || "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" }}
+          source={{ uri: gif || "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamtkZDFtbDg1bGxpMXN2NjBvaXlyc3Z6djRkNTZnNGtmZHc1eXBjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6gDRzatZMftmG2QM/giphy.gif" }}
           style={styles.gif}
         />
       </TouchableOpacity>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#D6CADD",
+    backgroundColor:'#E1AFD1',
     padding: 20,
   },
   gif: {
@@ -95,40 +95,42 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: "#9F2B68",
+    textAlign: "center",
+    marginBottom: 20,
     fontWeight: "bold",
+    color: '#AD88C6',
   },
   email: {
     fontSize: 16,
     marginBottom: 10,
-    color: "#9F2B68",
+    color: "#7469B6",
     fontWeight: "bold",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#7469B6",
     padding: 10,
     borderRadius: 8,
     width: "25%",
     marginBottom: 10,
     textAlign: "center",
-    color: "#333",
-    backgroundColor: "white",
+    color: "#7469B6",
+    backgroundColor: '#FFE6E6',
   },
   nickname: {
     fontSize: 16,
     marginBottom: 20,
-    color: "#9F2B68",
+    color: "#7469B6",
     fontWeight: "bold",
   },
   button: {
     padding: 10,
-    backgroundColor: "#BE93E4",
+    backgroundColor: "#AD88C6",
     borderRadius: 8,
     marginTop: 10,
   },
   buttonText: {
-    color: "white",
+    color: '#FFE6E6',
     fontWeight: "bold",
   },
 });
