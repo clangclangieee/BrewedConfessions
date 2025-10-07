@@ -16,13 +16,13 @@ const Home = () => {
 
       <Link href="/goals" asChild>
         <TouchableOpacity style={styles.buttonPrimary}>
-          <Text style={styles.buttonText}>View Your Goals</Text>
+          <Text style={styles.buttonText}>View Your Songs</Text>
         </TouchableOpacity>
       </Link>
 
       <Link href="/goals/create" asChild>
         <TouchableOpacity style={styles.buttonSecondary}>
-          <Text style={styles.buttonText}>Add a New Goal</Text>
+          <Text style={styles.buttonText}>Add a New Song</Text>
         </TouchableOpacity>
       </Link>
     </View>

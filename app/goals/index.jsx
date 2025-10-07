@@ -15,10 +15,10 @@ const Goals = () => {
               style={styles.gif}
               resizeMode="cover" 
             />
-      <Text style={styles.title}>Your Goals</Text>
+      <Text style={styles.title}>Your Songs</Text>
 
       {goals.length === 0 ? (
-        <Text style={styles.emptyText}>No goals yet. Add one!</Text>
+        <Text style={styles.emptyText}>No songs yet. Add one!</Text>
       ) : (
         <FlatList
           data={goals}

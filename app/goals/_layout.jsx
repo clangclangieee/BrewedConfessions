@@ -22,7 +22,7 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="index"
           options={{
-            title: "Your Goals",
+            title: "Your Songs",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
@@ -35,7 +35,7 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="create"
           options={{
-            title: "Create Goal",
+            title: "Add Song",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
@@ -48,7 +48,7 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="update/[id]"
           options={{
-            title: "Update Goal",
+            title: "Update Song",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
