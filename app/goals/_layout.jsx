@@ -22,7 +22,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="index"
           options={{
+<<<<<<< HEAD
             title: "Your Songs",
+=======
+            title: "Your Goals",
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
@@ -35,7 +39,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="create"
           options={{
+<<<<<<< HEAD
             title: "Add Song",
+=======
+            title: "Create Goal",
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
@@ -48,7 +56,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="update/[id]"
           options={{
+<<<<<<< HEAD
             title: "Update Song",
+=======
+            title: "Update Goal",
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}

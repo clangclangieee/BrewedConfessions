@@ -25,7 +25,10 @@
     "expo-font": "~14.0.8",
     "expo-haptics": "~15.0.7",
     "expo-image-picker": "~17.0.8",
+<<<<<<< HEAD
     "expo-linear-gradient": "~15.0.7",
+=======
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
     "expo-linking": "~8.0.8",
     "expo-router": "~6.0.10",
     "expo-splash-screen": "~31.0.10",
@@ -42,7 +45,12 @@
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-web": "^0.21.0",
+<<<<<<< HEAD
     "react-native-webview": "13.15.0"
+=======
+    "react-native-webview": "13.15.0",
+    "expo-linear-gradient": "~15.0.7"
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

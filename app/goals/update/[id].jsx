@@ -33,13 +33,21 @@ const UpdateGoal = () => {
         resizeMode="cover"
       />
 
+<<<<<<< HEAD
       <Text style={styles.title}>Update Song</Text>
+=======
+      <Text style={styles.title}>Update Goal</Text>
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
 
       <TextInput
         style={styles.input}
         value={goalText}
         onChangeText={setGoalText}
+<<<<<<< HEAD
         placeholder="Edit your song"
+=======
+        placeholder="Edit your goal"
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
         placeholderTextColor="#AD88C6"
       />
 

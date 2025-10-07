@@ -27,7 +27,11 @@ const Create = () => {
         style={styles.gif}
         resizeMode="cover" 
       />
+<<<<<<< HEAD
       <Text style={styles.title}>Add a Song</Text>
+=======
+      <Text style={styles.title}>Create a New Gol</Text>
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
 
       <TextInput
         style={styles.input}
@@ -38,7 +42,11 @@ const Create = () => {
       />
 
       <Pressable onPress={handleSubmit} style={styles.button}>
+<<<<<<< HEAD
         <Text style={{color: '#FFE6E6',fontWeight: "bold" }}>Add Song</Text>
+=======
+        <Text style={{color: '#FFE6E6',fontWeight: "bold" }}>Add A Gol</Text>
+>>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
       </Pressable>
     </SafeAreaView>
   )
