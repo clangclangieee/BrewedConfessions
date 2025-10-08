@@ -1,15 +1,40 @@
-import { addDoc, collection, onSnapshot, doc as firestoreDoc, deleteDoc, updateDoc} from "firebase/firestore";
+import { 
+  addDoc, 
+  collection, 
+  onSnapshot, 
+  query, 
+  where, 
+  doc as firestoreDoc, 
+  deleteDoc, 
+  updateDoc 
+} from "firebase/firestore";
 import React, { createContext, useState, useEffect } from "react";
-import { db } from "../firebaseConfig";
+import { db, auth } from "../firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const GoalsContext = createContext();
 
 export function GoalsProvider({ children }) {
   const [goals, setGoals] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // ✅ onSnapshot directly gives us unsubscribe function
-    const unsubscribe = onSnapshot(collection(db, "goals"), (snapshot) => {
+    const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribeAuth();
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      setGoals([]);
+      return;
+    }
+
+    const goalsRef = collection(db, "goals");
+    const q = query(goalsRef, where("userId", "==", user.uid));
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       const goalsData = snapshot.docs.map((docSnap) => ({
         id: docSnap.id,
         ...docSnap.data(),
@@ -17,13 +42,16 @@ export function GoalsProvider({ children }) {
       setGoals(goalsData);
     });
 
-    return () => unsubscribe(); // ✅ cleanup correctly
-  }, []);
+    return () => unsubscribe();
+  }, [user]);
 
   async function createGoal(goalData) {
+    if (!user) return;
+
     try {
       await addDoc(collection(db, "goals"), {
         ...goalData,
+        userId: user.uid,
         createdAt: new Date().toISOString(),
       });
     } catch (error) {
@@ -48,9 +76,7 @@ export function GoalsProvider({ children }) {
   }
 
   return (
-    <GoalsContext.Provider
-      value={{ goals, createGoal, deleteGoal, updateGoal }}
-    >
+    <GoalsContext.Provider value={{ goals, createGoal, deleteGoal, updateGoal }}>
       {children}
     </GoalsContext.Provider>
   );

@@ -22,15 +22,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="index"
           options={{
-<<<<<<< HEAD
-            title: "Your Songs",
-=======
-            title: "Your Goals",
->>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
+            title: "Your Tea",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "planet" : "planet-outline"}
+                name={focused ? "sparkles" : "sparkles-outline"}
                 color="#AD88C6"
               />
             ),
@@ -39,15 +35,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="create"
           options={{
-<<<<<<< HEAD
-            title: "Add Song",
-=======
-            title: "Create Goal",
->>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
+            title: "Brew Tea",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "ice-cream" : "ice-cream-outline"}
+                name={focused ? "cafe" : "cafe-outline"}
                 color="#AD88C6"
               />
             ),
@@ -56,15 +48,11 @@ export default function GoalsLayout() {
         <Tabs.Screen
           name="update/[id]"
           options={{
-<<<<<<< HEAD
-            title: "Update Song",
-=======
-            title: "Update Goal",
->>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
+            title: "Rebrew Tea",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "brush" : "brush-outline"}
+                name={focused ? "bonfire" : "bonfire-outline"}
                 color="#AD88C6"
               />
             ),
@@ -78,7 +66,7 @@ export default function GoalsLayout() {
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}
-                name={focused ? "flower" : "rose-outline"}
+                name={focused ? "heart-circle" : "heart-circle-outline"}
                 color="#AD88C6"
               />
             ),

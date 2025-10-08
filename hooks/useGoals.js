@@ -7,6 +7,5 @@ export function useGoals() {
   if (!context) {
     throw new Error(`Outside the scope of the Goals Provider.`)
   }
-
   return context
 }

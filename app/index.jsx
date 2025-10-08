@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleMain}>𝙾𝚏𝚏𝚝𝚛𝚊𝚌𝚔</Text>
+        <Text style={styles.titleMain}>𝑩𝒓𝒆𝒘𝒆𝒅 𝑪𝒐𝒏𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒔</Text>
       </View>
 
       <Image
@@ -16,21 +16,13 @@ const Home = () => {
 
       <Link href="/goals" asChild>
         <TouchableOpacity style={styles.buttonPrimary}>
-<<<<<<< HEAD
-          <Text style={styles.buttonText}>View Your Songs</Text>
-=======
-          <Text style={styles.buttonText}>View Your Goals</Text>
->>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
+          <Text style={styles.buttonText}>View Spilled Tea</Text>
         </TouchableOpacity>
       </Link>
 
       <Link href="/goals/create" asChild>
         <TouchableOpacity style={styles.buttonSecondary}>
-<<<<<<< HEAD
-          <Text style={styles.buttonText}>Add a New Song</Text>
-=======
-          <Text style={styles.buttonText}>Add a New Goal</Text>
->>>>>>> 8dd68feb07d367f040d0a0a98d23abf0d7b90334
+          <Text style={styles.buttonText}>Add a New Flavor</Text>
         </TouchableOpacity>
       </Link>
     </View>

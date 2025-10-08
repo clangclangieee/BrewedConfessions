@@ -11,18 +11,22 @@ export default function Signup() {
   const router = useRouter();
 
   const handleSignup = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      router.replace("/"); // ✅ redirect to Home (index.jsx)
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    // Sign out right after creating the account
+    await auth.signOut();
+    // Redirect to login page instead of home
+    router.replace("/login");
+  } catch (err) {
+    setError(err.message);
+  }
+};
+
 
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/liknow.gif")}
+        source={require("../assets/images/flowt.gif")}
         style={styles.gif}
         resizeMode="cover"
       />

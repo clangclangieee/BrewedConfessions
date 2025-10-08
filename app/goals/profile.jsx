@@ -2,7 +2,9 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, TextInput } from "reac
 import { useRouter } from "expo-router";
 import { useAuth } from "../context/AuthContext";
 import * as ImagePicker from "expo-image-picker";
-import { useState } from "react";  
+import { useState, useEffect } from "react";  
+import { db } from "../../firebaseConfig";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export default function Profile() {
   const { user, logout } = useAuth();
@@ -12,23 +14,60 @@ export default function Profile() {
   const [nickname, setNickname] = useState("");
   const [editingNickname, setEditingNickname] = useState(false);
 
+  // Load nickname and gif from Firestore
+  useEffect(() => {
+    const loadProfile = async () => {
+      if (!user) return;
+      try {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.nickname) setNickname(data.nickname);
+          if (data.gif) setGif(data.gif);
+        }
+      } catch (error) {
+        console.log("Error loading profile:", error);
+      }
+    };
+    loadProfile();
+  }, [user]);
+
+  // Save nickname and gif to Firestore
+  const saveProfile = async (newNickname = nickname, newGif = gif) => {
+    if (!user) return;
+    try {
+      const docRef = doc(db, "users", user.uid);
+      await setDoc(docRef, { nickname: newNickname, gif: newGif }, { merge: true });
+    } catch (error) {
+      console.log("Error saving profile:", error);
+    }
+  };
 
   const handleLogout = async () => {
     await logout();
-    router.replace("/login"); // 
+    router.replace("/login");
   };
 
   // Pick a gif or image
   const pickGif = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images, // includes gifs
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: false,
       quality: 1,
     });
 
     if (!result.canceled) {
-      setGif(result.assets[0].uri);
+      const selectedGif = result.assets[0].uri;
+      setGif(selectedGif);
+      await saveProfile(nickname, selectedGif); // save immediately
     }
+  };
+
+  // Save nickname only
+  const saveNicknameHandler = async () => {
+    setEditingNickname(false);
+    await saveProfile(nickname, gif);
   };
 
   return (
@@ -36,13 +75,12 @@ export default function Profile() {
       {/* Profile Gif */}
       <TouchableOpacity onPress={pickGif}>
         <Image
-          source={{ uri: gif || "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamtkZDFtbDg1bGxpMXN2NjBvaXlyc3Z6djRkNTZnNGtmZHc1eXBjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6gDRzatZMftmG2QM/giphy.gif" }}
+          source={{ uri: gif || "https://i.pinimg.com/originals/88/f6/bb/88f6bb265a93b104a2361c16b01b845a.gif" }}
           style={styles.gif}
         />
       </TouchableOpacity>
 
-      <Text style={styles.title}>Profile</Text>
-
+      <Text style={styles.title}>𝒫𝓇𝑜𝒻𝒾𝓁𝑒</Text>
       <Text style={styles.email}>Logged in as: {user?.email}</Text>
 
       {/* Nickname */}
@@ -55,7 +93,7 @@ export default function Profile() {
           />
           <TouchableOpacity
             style={styles.saveButton}
-            onPress={() => setEditingNickname(false)}
+            onPress={saveNicknameHandler}
           >
             <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
@@ -111,7 +149,7 @@ const styles = StyleSheet.create({
     borderColor: "#7469B6",
     padding: 10,
     borderRadius: 8,
-    width: "25%",
+    width: "60%",
     marginBottom: 10,
     textAlign: "center",
     color: "#7469B6",
@@ -128,6 +166,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#AD88C6",
     borderRadius: 8,
     marginTop: 10,
+  },
+  editButton: {
+    padding: 10,
+    backgroundColor: "#7469B6",
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  saveButton: {
+    padding: 10,
+    backgroundColor: "#7469B6",
+    borderRadius: 8,
+    marginBottom: 10,
   },
   buttonText: {
     color: '#FFE6E6',
