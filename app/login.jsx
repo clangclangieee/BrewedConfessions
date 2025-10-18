@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image,KeyboardAvoidingView, Platform } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { useRouter } from "expo-router";
@@ -20,6 +20,10 @@ export default function Login() {
   };
 
   return (
+    <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
     <View style={styles.container}>
       <Image
         source={require("../assets/images/hyunie.gif")}
@@ -53,6 +57,7 @@ export default function Login() {
         <Text style={styles.link}>Don’t have an account? Sign up</Text>
       </TouchableOpacity>
     </View>
+    </KeyboardAvoidingView>
   );
 }
 

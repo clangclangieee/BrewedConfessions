@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, KeyboardAvoidingView, Platform } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { useRouter } from "expo-router";
@@ -24,6 +24,10 @@ export default function Signup() {
 
 
   return (
+    <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
     <View style={styles.container}>
       <Image
         source={require("../assets/images/flowt.gif")}
@@ -58,6 +62,7 @@ export default function Signup() {
         <Text style={styles.link}>Already have an account? Login</Text>
       </TouchableOpacity>
     </View>
+    </KeyboardAvoidingView>
   );
 }
 

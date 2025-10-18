@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, KeyboardAvoidingView, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useGoals } from "../../hooks/useGoals";
 import { useRouter } from "expo-router";
@@ -15,6 +15,10 @@ const Goals = () => {
   };
 
   return (
+    <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
     <SafeAreaView style={styles.container}>
       <Image 
         source={require('../../assets/images/tea.gif')}
@@ -62,6 +66,7 @@ const Goals = () => {
         />
       )}
     </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -121,10 +126,29 @@ const styles = StyleSheet.create({
     fontStyle: 'italic' 
   },
   buttonsContainer: { 
-    flexDirection: "row" 
+    flexDirection: "column" 
   },
-  updateBtn: { backgroundColor: "#AD88C6", paddingVertical: 6, paddingHorizontal: 14, borderRadius: 5, marginRight: 8 },
-  updateText: { color: "#FFE6E6", fontWeight: "bold" },
-  deleteBtn: { backgroundColor: "#7469B6", paddingVertical: 5, paddingHorizontal: 12, borderRadius: 5, alignSelf: 'center' },
-  deleteText: { color: "#FFE6E6", fontWeight: "bold" },
+  updateBtn: { 
+    backgroundColor: "#AD88C6", 
+    paddingVertical: 6, 
+    paddingHorizontal: 14, 
+    borderRadius: 5, 
+    marginRight: 8,
+    marginBottom: 8, 
+  },
+  updateText: { 
+    color: "#FFE6E6", 
+    fontWeight: "bold" 
+  },
+  deleteBtn: { 
+    backgroundColor: "#7469B6", 
+    paddingVertical: 5, 
+    paddingHorizontal: 12, 
+    borderRadius: 5, 
+    alignSelf: 'center' 
+  },
+  deleteText: { 
+    color: "#FFE6E6", 
+    fontWeight: "bold" 
+  },
 });

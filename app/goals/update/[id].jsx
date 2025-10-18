@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, TextInput, Pressable, StyleSheet, Keyboard, Image, ScrollView } from 'react-native';
+import { View, Text, TextInput, Pressable, StyleSheet, Keyboard, Image, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useGoals } from '../../../hooks/useGoals';
@@ -31,6 +31,10 @@ const UpdateGoal = () => {
   };
 
   return (
+    <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 50 }}>
         <Image 
@@ -43,19 +47,19 @@ const UpdateGoal = () => {
 
         <TextInput
           style={styles.input}
-          value={goalText}
-          onChangeText={setGoalText}
           placeholder="Edit mood..."
           placeholderTextColor="#AD88C6"
+          value={goalText}
+          onChangeText={setGoalText}
         />
 
         <TextInput
           style={styles.bigInput}
-          value={description}
-          onChangeText={setDescription}
           placeholder="Rebrew spilled tea..."
           placeholderTextColor="#AD88C6"
-          multiline
+          value={description}
+          onChangeText={setDescription}
+          multiline={true}
           textAlignVertical="top"
         />
 
@@ -64,6 +68,7 @@ const UpdateGoal = () => {
         </Pressable>
       </ScrollView>
     </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 

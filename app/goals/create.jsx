@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, Pressable, Keyboard, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, Pressable, Keyboard, Image, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useGoals } from '../../hooks/useGoals';
 import { useRouter } from 'expo-router';
@@ -25,6 +25,10 @@ const Create = () => {
   };
 
   return (
+    <KeyboardAvoidingView
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{ alignItems: 'center', paddingBottom: 50 }}>
         <Image 
@@ -58,6 +62,7 @@ const Create = () => {
         </Pressable>
       </ScrollView>
     </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
